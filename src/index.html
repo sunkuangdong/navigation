@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <title>前端导航</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header class="golbalHeader">
+        <form class="searchForm" method="get" action="https://www.baidu.com/s">
+            <input name="wd" type="text">
+            <button type="submit">搜索</button>
+        </form>
+    </header>
+    <main class="golbalMain">
+        <ul class="siteList">
+            <li>
+                <a href="https://juejin.cn/">
+                    <div class="site">
+                        <div class="logo">
+                            <img src="./publish/juejin.png" alt="">
+                        </div>
+                        <div class="link">掘金</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.zhihu.com/signin">
+                    <div class="site">
+                        <div class="logo">
+                            <img src="./publish/zhihu.svg" alt="">
+                        </div>
+                        <div class="link">知乎</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://segmentfault.com/">
+                    <div class="site">
+                        <div class="logo">
+                            <img src="./publish/sifou.png" alt="">
+                        </div>
+                        <div class="link">思否</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <div class="site addButton">
+                    <div class="icon">
+                        <img src="./publish/add.svg">
+                    </div>
+                    <div class="text">新增网站</div>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <script src="./main.js"></script>
+</body>
+
+</html>
