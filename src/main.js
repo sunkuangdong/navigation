@@ -64,3 +64,12 @@ $('.addButton').on('click', () => {
 window.onbeforeunload = () => {
     localStorage.setItem('hashMap', JSON.stringify(hashMap))
 }
+
+// // 键盘事件
+// $(document).on('keypress', (e) => {
+//     // 用 input 的 focus 判断是否能用键盘事件
+//     if (!$('#input').is(':focus')) {
+//         const { key } = e
+//         console.log(key)
+//     }
+// })
