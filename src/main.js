@@ -1,21 +1,28 @@
 const xObject = JSON.parse(localStorage.getItem('hashMap'))
+console.log(require(__dirname))
 const hashMap = xObject || [
-    { logo: './publish/juejin.png', name: '掘金', url: 'https://juejin.cn/' },
-    { logo: './publish/zhihu.svg', name: '知乎', url: 'https://www.zhihu.com/signin' },
-    { logo: './publish/sifou.png', name: '思否', url: 'https://segmentfault.com/' },
+    { logo: 'J', name: '掘金', url: 'https://juejin.cn/' },
+    { logo: 'Z', name: '知乎', url: 'https://www.zhihu.com/signin' },
+    { logo: 'S', name: '思否', url: 'https://segmentfault.com/' },
 ]
 const $siteList = $('.siteList')
 const $last = $('.last')
+const simplifyUrl = (url) => {
+    // 删除 / 后面的所有内容
+    // .replace('www.', '').replace(/\/.*/, '')
+    return url.replace('https://', '').replace('http://', '').replace('www.', '')
+}
 const render = () => {
     $siteList.find('li:not(.last)').remove()
     hashMap.forEach(node => {
         const $li = $(`<li>
             <a href="${node.url}"> 
                 <div class="site">
-                    <div class="logo">
-                        <img src="${node.logo}" alt="">
-                    </div>
+                    <div class="logo">${node.logo}</div>
                     <div class="link">${node.name}</div>
+                    <div class="close">
+                        <img src="./publish/add.svg">
+                    </div>
                 </div>
             </a>
         </li>`).insertBefore($last)
@@ -37,7 +44,11 @@ $('.addButton').on('click', () => {
         window.confirm('请填写一个可爱的text哦！')
         return;
     }
-    hashMap.push({ logo: '', name: text, url })
+    hashMap.push({
+        logo: simplifyUrl(url)[0],
+        name: text,
+        url
+    })
     render()
 })
 // 页面离开的时候会存储

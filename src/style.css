@@ -91,7 +91,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 64px;
+    font-size: 45px;
+    text-transform: uppercase;
 }
 
 .siteList .site>.link {
