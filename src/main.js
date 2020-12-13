@@ -1,9 +1,10 @@
+import svg from "./publish/*.svg"
+import png from "./publish/*.png"
 const xObject = JSON.parse(localStorage.getItem('hashMap'))
-console.log(require(__dirname))
 const hashMap = xObject || [
-    { logo: 'J', name: '掘金', url: 'https://juejin.cn/' },
-    { logo: 'Z', name: '知乎', url: 'https://www.zhihu.com/signin' },
-    { logo: 'S', name: '思否', url: 'https://segmentfault.com/' },
+    { logo: png.juejin, name: '掘金', url: 'https://juejin.cn/' },
+    { logo: svg.zhihu, name: '知乎', url: 'https://www.zhihu.com/signin' },
+    { logo: png.sifou, name: '思否', url: 'https://segmentfault.com/' },
 ]
 const $siteList = $('.siteList')
 const $last = $('.last')
@@ -14,18 +15,26 @@ const simplifyUrl = (url) => {
 }
 const render = () => {
     $siteList.find('li:not(.last)').remove()
-    hashMap.forEach(node => {
+    hashMap.forEach((node, index) => {
         const $li = $(`<li>
-            <a href="${node.url}"> 
                 <div class="site">
-                    <div class="logo">${node.logo}</div>
+                    <div class="logo">
+                        <img src="${node.logo}">
+                    </div>
                     <div class="link">${node.name}</div>
                     <div class="close">
-                        <img src="./publish/add.svg">
+                        <img src="${svg.close}">
                     </div>
                 </div>
-            </a>
         </li>`).insertBefore($last)
+        $li.on('click', () => {
+            window.open(node.url)
+        })
+        $li.on('click', '.close', (e) => {
+            e.stopPropagation()
+            hashMap.splice(index, 1)
+            render()
+        })
     })
 }
 render()
@@ -45,7 +54,7 @@ $('.addButton').on('click', () => {
         return;
     }
     hashMap.push({
-        logo: simplifyUrl(url)[0],
+        logo: png.lanqiu,
         name: text,
         url
     })

@@ -28,6 +28,14 @@ img {
     max-width: 100%;
 }
 
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
 /* style */
 body {
     background: #eeeeee;
@@ -83,6 +91,20 @@ body {
     background: white;
     border-radius: 4px;
     padding: 20px 0;
+    position: relative;
+}
+
+.siteList .site>.close {
+    width: 20px;
+    height: 20px;
+    color: white;
+    background: orange;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .siteList .site>.logo {
@@ -104,7 +126,7 @@ body {
     width: 160px;
 }
 
-.siteList .icon>img {
+.siteList .imgs>img {
     width: 64px;
     height: 64px;
 }
